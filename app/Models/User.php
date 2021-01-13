@@ -40,4 +40,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function likedPosts()
+    {
+        return $this->morphedByMany(Post::class,'likeable');
+    }
+
+    public function savedPosts()
+    {
+        return $this->belongsToMany(Post::class,'save_posts');
+    }
 }
