@@ -41,13 +41,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
     public function likedPosts()
     {
-        return $this->morphedByMany(Post::class,'likeable');
+        return $this->morphedByMany(Post::class, 'likeable');
     }
 
     public function savedPosts()
     {
-        return $this->belongsToMany(Post::class,'save_posts');
+        return $this->belongsToMany(Post::class, 'save_posts');
     }
 }
