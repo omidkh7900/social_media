@@ -55,4 +55,14 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Post::class, 'save_posts');
     }
+
+    public function postsMentions()
+    {
+        return $this->morphedByMany(Post::class,'mention');
+    }
+
+    public function commentsMentions()
+    {
+        return $this->morphedByMany(Comment::class,'mention');
+    }
 }

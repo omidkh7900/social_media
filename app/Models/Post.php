@@ -36,4 +36,9 @@ class Post extends Model
     {
         return $this->belongsToMany(Tag::class,'post_tag');
     }
+
+    public function mentions()
+    {
+        return $this->morphToMany(User::class, 'mention');
+    }
 }

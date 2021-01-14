@@ -25,4 +25,9 @@ class Comment extends Model
     {
         return $this->belongsTo(Post::class);
     }
+
+    public function mentions()
+    {
+        return $this->morphToMany(User::class,'mention');
+    }
 }
