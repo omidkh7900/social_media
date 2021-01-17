@@ -6,9 +6,9 @@ namespace App\Services\Interfaces;
 
 interface deleteServiceInterface
 {
-    public function delete(int $id);
+    public function delete(string $slug);
 
-    public function forceDelete(int $id);
+    public function forceDelete(string $slug);
 
-    public function restore(int $id);
+    public function restore(string $slug);
 }

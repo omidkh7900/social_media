@@ -15,10 +15,12 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->string('slug',11)->unique();
             $table->text('caption')->nullable();
             $table->boolean('comment_able')->default(true);
             $table->string('paths');
             $table->foreignIdFor(\App\Models\User::class);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
